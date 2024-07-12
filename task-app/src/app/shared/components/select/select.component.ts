@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthorService } from '../../services/author.service';
 
 @Component({
   selector: 'task-select',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss',
 })
-export class SelectComponent {}
+export class SelectComponent {
+  protected readonly authorService = inject(AuthorService);
+
+  toggleAuthorVisible(): void {
+    this.authorService.authorVisible.update((currentVal) => !currentVal);
+  }
+}

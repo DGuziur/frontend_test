@@ -5,7 +5,12 @@
       alt="HTML5 Logo"
       class="main-nav-logo-icon"
     />
-    <p>Zadanie <strong>rekrutacyjne</strong></p>
+    <div>
+      <p>Zadanie <strong>rekrutacyjne</strong></p>
+      @if (authorService.authorVisible()) {
+      <p>Dawid Guziur</p>
+      }
+    </div>
   </nav>
   <main class="main-content">
     <router-outlet></router-outlet>

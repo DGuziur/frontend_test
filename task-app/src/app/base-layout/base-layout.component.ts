@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SelectComponent } from '../shared/components/select/select.component';
+import { AuthorService } from '../shared/services/author.service';
 
 @Component({
   selector: 'app-base-layout',
@@ -9,4 +10,6 @@ import { SelectComponent } from '../shared/components/select/select.component';
   templateUrl: './base-layout.component.html',
   styleUrl: './base-layout.component.scss',
 })
-export class BaseLayoutComponent {}
+export class BaseLayoutComponent {
+  protected readonly authorService = inject(AuthorService);
+}
