@@ -1,7 +1,7 @@
 @import "variable";
 @import "animations";
 
-.main-header {
+.main-nav {
   background: $black;
   color: $font;
   position: sticky;
@@ -34,7 +34,7 @@
   grid-template-rows: 5rem 1fr 5rem;
 }
 
-.logo-icon {
+.main-nav-logo-icon {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
@@ -45,7 +45,7 @@
   }
 }
 
-.css-awesome {
+.main-footer-css-awesome {
   filter: grayscale(1);
   padding: 3px;
   width: 4rem;
