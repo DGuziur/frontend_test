@@ -1,3 +1,5 @@
+@import "variable";
+
 .main-page-block-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -11,4 +13,13 @@
   justify-content: space-around;
   align-items: center;
   padding: 2rem;
+}
+
+@media screen and (max-width: $mobile-max-width) {
+  .main-page-block-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "radio buttons"
+      "text text";
+  }
 }

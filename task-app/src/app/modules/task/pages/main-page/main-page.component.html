@@ -2,29 +2,40 @@
 
 <div class="main-page-block-container">
   <block-component title="Pierwszy blok">
-    @for (article of mainPageService.allArticles(); track article) {
+    @for (article of articlesService.avaliableArticles(); track article) {
     <app-radio
       name="articles"
       [value]="article.text"
       [label]="article.title"
       (changed)="selectedArticle.set(article)"
     ></app-radio>
+    } @empty {
+    <h1>Brak artykułów</h1>
+    <p>Zawsze możesz jakieś dodać :></p>
+    } @if (isRandomAvaliable()) {
+    <app-radio
+      name="articles"
+      value=""
+      label="Losowy"
+      (changed)="getRandomUnusedArticle()"
+    ></app-radio>
     }
   </block-component>
 
   <block-component title="Drugi blok">
     <div class="main-page-btn-container">
-      <button (click)="test(selectedArticle())" class="primary-btn">
+      <button (click)="replaceAllWithSelected()" class="primary-btn">
         Zastąp
       </button>
-      <button class="primary-btn">Doklej</button>
+      <button (click)="readArticle()" class="primary-btn">Doklej</button>
     </div>
   </block-component>
 
   <block-component
     title="Trzeci blok z długą bardzo nazwą która sama się przytnie"
   >
-    @for (article of mainPageService.allArticles(); track article) {
+    @for (article of articlesService.usedArticles(); track article) {
+    <header-component>{{ article.title }}</header-component>
     <article class="text-middle">
       {{ article.text }}
     </article>
