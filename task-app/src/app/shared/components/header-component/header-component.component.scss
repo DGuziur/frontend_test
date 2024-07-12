@@ -1,0 +1,18 @@
+@import "variable";
+
+.container {
+  display: grid;
+  place-items: center;
+}
+
+.header-text {
+  width: 100%;
+  text-align: center;
+}
+
+.underline {
+  background-color: $font;
+  height: 2px;
+  width: 30vh;
+  border-radius: 50%;
+}
