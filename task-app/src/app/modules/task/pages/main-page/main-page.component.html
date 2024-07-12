@@ -1,0 +1,28 @@
+<header-component>Nagłówek H1</header-component>
+
+<div class="main-page-block-container">
+  <block-component title="Pierwszy blok">
+    <app-radio [name]="a" [value]="a" label="Opcja pierwsza"></app-radio>
+    <app-radio [name]="a" [value]="a" label="Opcja druga"></app-radio>
+    <app-radio [name]="a" [value]="a" label="Opcja losowa"></app-radio>
+  </block-component>
+
+  <block-component title="Drugi blok">
+    <div class="main-page-btn-container">
+      <button class="primary-btn">Zastąp</button>
+      <button class="primary-btn">Doklej</button>
+    </div>
+  </block-component>
+
+  <block-component
+    title="Trzeci blok z długą bardzo nazwą która sama się przytnie"
+  >
+    @for (text of texts; track text) {
+    <article class="text-middle">
+      {{ text }}
+      {{ text }}
+      {{ text }}{{ text }}{{ text }}{{ text }}{{ text }}
+    </article>
+    }
+  </block-component>
+</div>
