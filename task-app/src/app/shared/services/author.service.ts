@@ -4,5 +4,6 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthorService {
+  readonly author: string = 'Dawid Guziur';
   authorVisible = signal<boolean>(false);
 }

@@ -1,4 +1,4 @@
-import { Component, input, model } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,4 +12,5 @@ export class RadioComponent {
   name = input.required<string>();
   value = input.required<string>();
   label = input.required<string>();
+  changed = output<void>();
 }

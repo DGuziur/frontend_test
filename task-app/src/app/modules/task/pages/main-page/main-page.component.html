@@ -2,14 +2,21 @@
 
 <div class="main-page-block-container">
   <block-component title="Pierwszy blok">
-    <app-radio [name]="a" [value]="a" label="Opcja pierwsza"></app-radio>
-    <app-radio [name]="a" [value]="a" label="Opcja druga"></app-radio>
-    <app-radio [name]="a" [value]="a" label="Opcja losowa"></app-radio>
+    @for (article of mainPageService.allArticles(); track article) {
+    <app-radio
+      name="articles"
+      [value]="article.text"
+      [label]="article.title"
+      (changed)="selectedArticle.set(article)"
+    ></app-radio>
+    }
   </block-component>
 
   <block-component title="Drugi blok">
     <div class="main-page-btn-container">
-      <button class="primary-btn">Zastąp</button>
+      <button (click)="test(selectedArticle())" class="primary-btn">
+        Zastąp
+      </button>
       <button class="primary-btn">Doklej</button>
     </div>
   </block-component>
@@ -17,11 +24,9 @@
   <block-component
     title="Trzeci blok z długą bardzo nazwą która sama się przytnie"
   >
-    @for (text of texts; track text) {
+    @for (article of mainPageService.allArticles(); track article) {
     <article class="text-middle">
-      {{ text }}
-      {{ text }}
-      {{ text }}{{ text }}{{ text }}{{ text }}{{ text }}
+      {{ article.text }}
     </article>
     }
   </block-component>
