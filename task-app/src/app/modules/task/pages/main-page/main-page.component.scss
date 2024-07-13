@@ -2,10 +2,11 @@
 
 .main-page-block-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   justify-items: center;
   align-items: start;
-  height: 100%;
+  margin-bottom: 5px;
+  max-width: 100%;
 }
 
 .main-page-btn-container {
@@ -15,11 +16,25 @@
   padding: 2rem;
 }
 
+.main-page-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 @media screen and (max-width: $mobile-max-width) {
   .main-page-block-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "radio buttons"
-      "text text";
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-page-buttons {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .main-page-btn-container {
+    display: grid;
+    gap: 1rem;
   }
 }
