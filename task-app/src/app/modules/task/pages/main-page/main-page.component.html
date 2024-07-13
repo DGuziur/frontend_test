@@ -2,43 +2,56 @@
 
 <div class="main-page-block-container">
   <div class="main-page-buttons">
-    <block-component title="Pierwszy blok">
-      @for (article of articlesService.avaliableArticles(); track article) {
-      <app-radio
-        name="articles"
-        [value]="article.text"
-        [label]="article.title"
-        (changed)="selectedArticle.set(article)"
-      ></app-radio>
-      } @empty {
-      <h1>Brak artykułów</h1>
-      <p>Zawsze możesz jakieś dodać :></p>
-      } @if (isRandomAvaliable()) {
-      <app-radio
-        name="articles"
-        value=""
-        label="Losowy"
-        (changed)="getRandomUnusedArticle()"
-      ></app-radio>
-      }
-    </block-component>
+    <div>
+      <strong>
+        <p class="block-title-left">Pierwszy blok</p>
+      </strong>
+      <div class="main-page-radio-container">
+        @for (article of articlesService.avaliableArticles(); track article) {
+        <app-radio
+          name="articles"
+          [value]="article.text"
+          [label]="article.title"
+          (changed)="selectedArticle.set(article)"
+        ></app-radio>
+        } @empty {
+        <h1>Brak artykułów</h1>
+        <p>Zawsze możesz jakieś dodać :></p>
+        } @if (isRandomAvaliable()) {
+        <app-radio
+          name="articles"
+          value=""
+          label="Losowy"
+          (changed)="getRandomUnusedArticle()"
+        ></app-radio>
+        }
+      </div>
+    </div>
 
-    <block-component title="Drugi blok">
+    <div>
+      <strong>
+        <p class="block-title-buttons">Drugi blok</p>
+      </strong>
       <div class="main-page-btn-container">
         <button (click)="replaceAllWithSelected()" class="primary-btn">
           Zastąp
         </button>
         <button (click)="readArticle()" class="primary-btn">Doklej</button>
       </div>
-    </block-component>
+    </div>
   </div>
 
-  <block-component title="Trzeci blok z długą nazwą która sama się przytnie">
+  <div class="article">
+    <strong>
+      <p class="block-title-articles">
+        Blok z bardzo długą nazwą która sama się przytnie
+      </p>
+    </strong>
     @for (article of articlesService.usedArticles(); track article) {
     <header-component>{{ article.title }}</header-component>
     <article class="text-middle">
       {{ article.text }}
     </article>
     }
-  </block-component>
+  </div>
 </div>

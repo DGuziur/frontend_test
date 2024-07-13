@@ -13,12 +13,32 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 2rem;
 }
 
 .main-page-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.block-title-left {
+  text-align: center;
+}
+
+.block-title-buttons {
+  text-align: center;
+}
+
+.article {
+  width: 100%;
+  min-width: 100%;
+}
+
+.block-title-articles {
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
 }
 
 @media screen and (max-width: $mobile-max-width) {
@@ -36,5 +56,13 @@
   .main-page-btn-container {
     display: grid;
     gap: 1rem;
+  }
+
+  .block-title-left {
+    text-align: left;
+  }
+
+  .block-title-buttons {
+    text-align: right;
   }
 }
