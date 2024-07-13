@@ -15,6 +15,7 @@ export const routes: Routes = [
       },
       {
         path: 'app',
+        title: 'zadanie rekrutacyjne',
         loadComponent: () =>
           import('./modules/task/pages/main-page/main-page.component').then(
             (m) => m.MainPageComponent

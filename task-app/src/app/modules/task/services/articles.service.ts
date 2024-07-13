@@ -66,4 +66,9 @@ export class ArticlesService {
   getArticlesFromLocalStorage(): void {
     console.log(localStorage.getItem('allArticles') ?? '');
   }
+
+  resetArticles(): void {
+    this.allArticles.set(DEFAULT_ARTICLES);
+    this.usedArticles.set([]);
+  }
 }

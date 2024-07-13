@@ -17,8 +17,8 @@ import { NotificationService } from '../../../../shared/services/notification.se
 })
 export class MainPageComponent implements OnInit {
   protected readonly articlesService = inject(ArticlesService);
+  protected readonly minForRandomSelect: number = 2;
   notification = inject(NotificationService);
-  readonly minForRandomSelect: number = 2;
   selectedArticle = signal<Article | null>(null);
 
   ngOnInit(): void {
