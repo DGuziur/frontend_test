@@ -6,6 +6,7 @@ import { ArticlesService } from '../../services/articles.service';
 import { FormsModule } from '@angular/forms';
 import { Article } from '../../types/article.type';
 import { DEFAULT_ARTICLES } from '../../config/default-articles.config';
+import { NotificationService } from '../../../../shared/services/notification.service';
 
 @Component({
   selector: 'app-main-page',
@@ -16,6 +17,7 @@ import { DEFAULT_ARTICLES } from '../../config/default-articles.config';
 })
 export class MainPageComponent implements OnInit {
   protected readonly articlesService = inject(ArticlesService);
+  notification = inject(NotificationService);
   readonly minForRandomSelect: number = 2;
   selectedArticle = signal<Article | null>(null);
 

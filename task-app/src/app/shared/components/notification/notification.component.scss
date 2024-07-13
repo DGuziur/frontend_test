@@ -1,0 +1,30 @@
+@import "variable";
+@import "animations";
+.all-notifications-container {
+  position: fixed;
+  top: 6rem;
+  right: 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.notification-container {
+  z-index: 2;
+  padding: 1rem;
+  display: grid;
+  width: 200px;
+  color: $font;
+  animation: moveIn 0.1s;
+}
+
+.notification-title {
+  font-weight: bold;
+}
+
+.success {
+  background: $secondary;
+}
+
+.error {
+  background: $error;
+}

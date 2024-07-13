@@ -1,6 +1,7 @@
-import { computed, effect, Injectable, signal } from '@angular/core';
+import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { Article } from '../types/article.type';
 import { DEFAULT_ARTICLES } from '../config/default-articles.config';
+import { NotificationService } from '../../../shared/services/notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +9,7 @@ import { DEFAULT_ARTICLES } from '../config/default-articles.config';
 export class ArticlesService {
   allArticles = signal<Article[]>([]);
   usedArticles = signal<Article[]>([]);
+  private readonly notificationService = inject(NotificationService);
 
   avaliableArticles = computed<Article[]>(() =>
     this.allArticles().filter(
@@ -26,15 +28,17 @@ export class ArticlesService {
   }
 
   replaceAllSelectedWith(newArticle: Article | null): void {
-    if (newArticle) {
-      this.usedArticles.set([newArticle]);
+    if (!newArticle) {
+      return this.notificationService.error('Błąd', 'Nie wybrano artykułu');
     }
+    this.usedArticles.set([newArticle]);
   }
 
   readArticle(article: Article | null): void {
-    if (article) {
-      this.usedArticles.update((oldArticles) => [...oldArticles, article]);
+    if (!article) {
+      return this.notificationService.error('Błąd', 'Nie wybrano artykułu');
     }
+    this.usedArticles.update((oldArticles) => [...oldArticles, article]);
     this.usedArticles.set(this.sortArticles(this.usedArticles()));
   }
 

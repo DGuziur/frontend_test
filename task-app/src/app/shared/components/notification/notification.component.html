@@ -1,0 +1,9 @@
+<div class="all-notifications-container">
+  @for (notification of notificationService.activeNotifications(); track
+  notification) {
+  <div class="notification-container" [ngClass]="notification.type">
+    <span class="notification-title">{{ notification.title }}</span>
+    <span class="notification-text">{{ notification.text }}</span>
+  </div>
+  }
+</div>
