@@ -12,5 +12,6 @@ export class RadioComponent {
   name = input.required<string>();
   value = input.required<string>();
   label = input.required<string>();
+  checked = model<boolean>(false);
   changed = output<void>();
 }

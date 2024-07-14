@@ -22,6 +22,7 @@
           name="articles"
           value=""
           label="Losowy"
+          [checked]="randomArticle()"
           (changed)="getRandomUnusedArticle()"
         ></app-radio>
         }
@@ -37,6 +38,7 @@
           Zastąp
         </button>
         <button (click)="readArticle()" class="primary-btn">Doklej</button>
+        <button (click)="readArticle()" class="primary-btn">Nowy</button>
       </div>
     </div>
   </div>

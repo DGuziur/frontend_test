@@ -20,6 +20,7 @@ export class MainPageComponent implements OnInit {
   protected readonly minForRandomSelect: number = 2;
   notification = inject(NotificationService);
   selectedArticle = signal<Article | null>(null);
+  randomArticle = signal<boolean>(false);
 
   ngOnInit(): void {
     this.articlesService.allArticles.set(DEFAULT_ARTICLES);
@@ -27,16 +28,19 @@ export class MainPageComponent implements OnInit {
 
   getRandomUnusedArticle(): void {
     this.selectedArticle.set(this.articlesService.getRandomUnusedArticle());
+    this.randomArticle.set(true);
   }
 
   replaceAllWithSelected(): void {
     this.articlesService.replaceAllSelectedWith(this.selectedArticle());
     this.selectedArticle.set(null);
+    this.randomArticle.set(false);
   }
 
   readArticle(): void {
     this.articlesService.readArticle(this.selectedArticle());
     this.selectedArticle.set(null);
+    this.randomArticle.set(false);
   }
 
   isRandomAvaliable(): boolean {
