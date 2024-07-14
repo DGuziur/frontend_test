@@ -3,6 +3,11 @@
 .radio-container {
   display: flex;
   padding: 1rem;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
 }
 
 input[type="radio"] {
