@@ -1,4 +1,4 @@
-import { Component, effect, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { HeaderComponent } from '../../../../shared/components/header-component/header-component.component';
 import { BlockComponent } from '../../components/radio-block/block.component';
 import { RadioComponent } from '../../../../shared/components/radio/radio.component';
@@ -7,11 +7,18 @@ import { FormsModule } from '@angular/forms';
 import { Article } from '../../types/article.type';
 import { DEFAULT_ARTICLES } from '../../config/default-articles.config';
 import { NotificationService } from '../../../../shared/services/notification.service';
+import { ArticleFormComponent } from '../../components/article-form/article-form.component';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [HeaderComponent, BlockComponent, RadioComponent, FormsModule],
+  imports: [
+    ArticleFormComponent,
+    BlockComponent,
+    FormsModule,
+    HeaderComponent,
+    RadioComponent,
+  ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
@@ -21,6 +28,7 @@ export class MainPageComponent implements OnInit {
   notification = inject(NotificationService);
   selectedArticle = signal<Article | null>(null);
   randomArticle = signal<boolean>(false);
+  formVisible = signal<boolean>(false);
 
   ngOnInit(): void {
     this.articlesService.allArticles.set(DEFAULT_ARTICLES);

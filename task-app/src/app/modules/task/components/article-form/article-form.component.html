@@ -1,0 +1,18 @@
+<div class="article-form-container">
+  <form (submit)="saveArticle()" [formGroup]="form">
+    <input-component name="Tytuł" controlName="title"></input-component>
+    <textarea-component name="Text" controlName="text"></textarea-component>
+    <div class="form-btn-container">
+      <button type="submit" [disabled]="!form.valid" class="primary-btn">
+        Dodaj
+      </button>
+      <button
+        type="button"
+        (click)="exitForm()"
+        class="primary-btn form-exit-btn"
+      >
+        Zamknij
+      </button>
+    </div>
+  </form>
+</div>

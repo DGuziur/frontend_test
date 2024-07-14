@@ -1,0 +1,16 @@
+@import "variable";
+
+.textarea-container {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.component-textarea {
+  width: 100%;
+  background-color: $background;
+  color: $font;
+  padding: 0.2rem;
+  height: 25vh;
+  font-size: large;
+  resize: both;
+}

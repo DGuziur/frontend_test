@@ -22,6 +22,10 @@ body {
     color: $font;
     border: 1px solid $font;
   }
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .text-middle {

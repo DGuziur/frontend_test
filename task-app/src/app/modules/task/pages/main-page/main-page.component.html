@@ -38,7 +38,9 @@
           Zastąp
         </button>
         <button (click)="readArticle()" class="primary-btn">Doklej</button>
-        <button (click)="readArticle()" class="primary-btn">Nowy</button>
+        <button (click)="formVisible.set(true)" class="primary-btn">
+          Nowy
+        </button>
       </div>
     </div>
   </div>
@@ -57,3 +59,9 @@
     }
   </div>
 </div>
+
+@if (formVisible()) {
+<article-form-component
+  (close)="formVisible.set(false)"
+></article-form-component>
+}

@@ -1,0 +1,28 @@
+@import "variable";
+@import "animations";
+
+.article-form-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 400px;
+  max-width: 80vw;
+  background-color: $background;
+  border: 0.5rem solid $secondary;
+  box-sizing: border-box;
+  z-index: 1;
+  padding: 2rem;
+  animation: moveIn 0.1s linear;
+  backdrop-filter: blur(5px);
+}
+
+.form-exit-btn {
+  float: right;
+}
+
+@media screen and (max-width: $mobile-max-width) {
+  .form-btn-container {
+    display: grid;
+  }
+}

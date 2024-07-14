@@ -1,0 +1,8 @@
+<div [formGroup]="formGroup" class="textarea-container">
+  <label [for]="name()">{{ name() }}</label>
+  <textarea
+    class="component-textarea"
+    [name]="name()"
+    [formControlName]="controlName()"
+  ></textarea>
+</div>

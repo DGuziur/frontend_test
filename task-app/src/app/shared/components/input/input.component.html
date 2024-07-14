@@ -1,0 +1,10 @@
+<div [formGroup]="formGroup" class="input-container">
+  <label [for]="name()">{{ name() }}</label
+  ><br />
+  <input
+    class="component-input"
+    [type]="type()"
+    [name]="name()"
+    [formControlName]="controlName()"
+  />
+</div>

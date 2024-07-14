@@ -1,0 +1,13 @@
+@import "variable";
+
+.input-container {
+  width: 100%;
+}
+
+.component-input {
+  width: 100%;
+  background-color: $background;
+  color: $font;
+  padding: 0.2rem;
+  font-size: large;
+}
