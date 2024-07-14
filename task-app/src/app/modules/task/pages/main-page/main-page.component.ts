@@ -5,7 +5,6 @@ import { RadioComponent } from '../../../../shared/components/radio/radio.compon
 import { ArticlesService } from '../../services/articles.service';
 import { FormsModule } from '@angular/forms';
 import { Article } from '../../types/article.type';
-import { DEFAULT_ARTICLES } from '../../config/default-articles.config';
 import { NotificationService } from '../../../../shared/services/notification.service';
 import { ArticleFormComponent } from '../../components/article-form/article-form.component';
 
@@ -31,7 +30,7 @@ export class MainPageComponent implements OnInit {
   formVisible = signal<boolean>(false);
 
   ngOnInit(): void {
-    this.articlesService.allArticles.set(DEFAULT_ARTICLES);
+    this.articlesService.getArticles();
   }
 
   getRandomUnusedArticle(): void {
