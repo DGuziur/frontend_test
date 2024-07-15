@@ -77,11 +77,39 @@ export class ArticlesService {
   }
 
   deleteArticleWithIndex(index: number): void {
-    this.allArticles.update((articles) => articles.splice(index, 1));
+    this.allArticles.update((articles) => {
+      articles.splice(index, 1);
+      return [...articles];
+    });
+    this.saveToLocalStorage();
+  }
+
+  deleteArticle(articleToDelete: Article | null): void {
+    if (!articleToDelete) {
+      return this.notificationService.error('Błąd', 'Nie wybrano artykułu');
+    }
+    const index = this.allArticles().findIndex(
+      (article) => article === articleToDelete
+    );
+    this.deleteArticleWithIndex(index);
   }
 
   editArticleWithIndex(index: number, newValue: Article): void {
-    this.allArticles()[index] = newValue;
+    this.allArticles.update((articles) => {
+      articles[index] = newValue;
+      return [...articles];
+    });
+    this.saveToLocalStorage();
+  }
+
+  editArticle(articleToEdit: Article | null, newValue: Article): void {
+    if (!articleToEdit) {
+      return this.notificationService.error('Błąd', 'Nie wybrano artykułu');
+    }
+    const index = this.allArticles().findIndex(
+      (article) => article === articleToEdit
+    );
+    this.editArticleWithIndex(index, newValue);
   }
 
   getRandomUnusedArticle(): Article {

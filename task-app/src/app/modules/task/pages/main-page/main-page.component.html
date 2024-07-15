@@ -38,9 +38,14 @@
           Zastąp
         </button>
         <button (click)="readArticle()" class="primary-btn">Doklej</button>
-        <button (click)="formVisible.set(true)" class="primary-btn">
-          Nowy
+        <button (click)="createNewArticle()" class="primary-btn">Nowy</button>
+        <button
+          (click)="articlesService.deleteArticle(selectedArticle())"
+          class="primary-btn"
+        >
+          Usuń
         </button>
+        <button (click)="openEdit()" class="primary-btn">Edytuj</button>
       </div>
     </div>
   </div>
@@ -63,5 +68,7 @@
 @if (formVisible()) {
 <article-form-component
   (close)="formVisible.set(false)"
+  [isEdit]="isEdit()"
+  [articleToEdit]="selectedArticle()"
 ></article-form-component>
 }

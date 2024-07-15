@@ -27,15 +27,33 @@ export class MainPageComponent implements OnInit {
   notification = inject(NotificationService);
   selectedArticle = signal<Article | null>(null);
   randomArticle = signal<boolean>(false);
+  isEdit = signal<boolean>(false);
   formVisible = signal<boolean>(false);
 
   ngOnInit(): void {
     this.articlesService.getArticles();
   }
 
+  createNewArticle(): void {
+    if (!this.formVisible()) {
+      this.isEdit.set(false);
+      this.formVisible.set(true);
+    }
+  }
+
   getRandomUnusedArticle(): void {
     this.selectedArticle.set(this.articlesService.getRandomUnusedArticle());
     this.randomArticle.set(true);
+  }
+
+  openEdit(): void {
+    if (!this.selectedArticle()) {
+      return this.notification.error('Błąd', 'Nie wybrano artykułu');
+    }
+    if (!this.formVisible()) {
+      this.isEdit.set(true);
+      this.formVisible.set(true);
+    }
   }
 
   replaceAllWithSelected(): void {
